@@ -3,7 +3,7 @@ from json import JSONDecodeError
 import random
 from re import A
 import time
-from mongodb.mongodbase import TextMongoDatabase
+from dbs.mongodb import TextMongoDatabase
 import requests
 
 
