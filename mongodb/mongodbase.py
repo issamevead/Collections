@@ -50,9 +50,10 @@ class TextMongoDatabase:
         set the database and collection
         """
 
-        self.conn = MongoClient(
-            f"mongodb://{self.user}:{self.password}@{self.host}:{self.port}/admin?authSource=admin&authMechanism=SCRAM-SHA-1"
-        )
+        self.conn = MongoClient("mongodb+srv://mongo:mongo@cluster0.sg4e3gk.mongodb.net/?retryWrites=true&w=majority")
+        db = self.conn.test
+
+        # f"mongodb://{self.user}:{self.password}@{self.host}:{self.port}/admin?authSource=admin&authMechanism=SCRAM-SHA-1"
         self.database = self.conn[get_env("DATABASE_NAME")]
         self.collection = self.database[collection]
         log.info(f"Database | Connected | {self.collection.name}")
